@@ -1,6 +1,7 @@
 import { Brain, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,37 +25,25 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
+            <button onClick={() => scrollToSection("about")} className="text-muted-foreground hover:text-primary transition-colors">
               Tentang
             </button>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
+            <button onClick={() => scrollToSection("projects")} className="text-muted-foreground hover:text-primary transition-colors">
               Proyek
             </button>
-            <button
-              onClick={() => scrollToSection("blog")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
+            <Link to={"workflow"} className="text-muted-foreground hover:text-primary transition-colors">
+              Workflow
+            </Link>
+            <button onClick={() => scrollToSection("blog")} className="text-muted-foreground hover:text-primary transition-colors">
               Blog
             </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="gradient-primary hover:opacity-90 transition-opacity"
-            >
+            <Button onClick={() => scrollToSection("contact")} className="gradient-primary hover:opacity-90 transition-opacity">
               Kontak
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-foreground"
-          >
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground">
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
@@ -62,28 +51,16 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="block w-full text-left text-muted-foreground hover:text-primary transition-colors"
-            >
+            <button onClick={() => scrollToSection("about")} className="block w-full text-left text-muted-foreground hover:text-primary transition-colors">
               Tentang
             </button>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="block w-full text-left text-muted-foreground hover:text-primary transition-colors"
-            >
+            <button onClick={() => scrollToSection("projects")} className="block w-full text-left text-muted-foreground hover:text-primary transition-colors">
               Proyek
             </button>
-            <button
-              onClick={() => scrollToSection("blog")}
-              className="block w-full text-left text-muted-foreground hover:text-primary transition-colors"
-            >
+            <button onClick={() => scrollToSection("blog")} className="block w-full text-left text-muted-foreground hover:text-primary transition-colors">
               Blog
             </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="w-full gradient-primary hover:opacity-90 transition-opacity"
-            >
+            <Button onClick={() => scrollToSection("contact")} className="w-full gradient-primary hover:opacity-90 transition-opacity">
               Kontak
             </Button>
           </div>

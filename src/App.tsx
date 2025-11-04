@@ -4,8 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import WorkflowPreview from "./pages/WorkflowPreview";
 import NotFound from "./pages/NotFound";
+import WorkflowPreview from "./pages/WorkflowPreview";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +17,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/workflows" element={<WorkflowPreview />} />
+          <Route path="/workflow" element={<WorkflowPreview />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
