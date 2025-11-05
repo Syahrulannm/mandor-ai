@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
 // Ganti URL ini dengan webhook n8n Anda
-const N8N_WEBHOOK_URL = "https://your-n8n-webhook.n8n.cloud/webhook/chat";
+const N8N_WEBHOOK_URL = "https://curvier-gramophonically-bernadette.ngrok-free.dev/webhook/ecf5c3fe-d225-4365-9aa1-29c74eba72e3";
 
 interface Message {
   id: string;
@@ -66,7 +66,7 @@ const Chatbot = () => {
       }
 
       const data = await response.json();
-      
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: data.reply || "Maaf, saya tidak mengerti.",
@@ -82,7 +82,7 @@ const Chatbot = () => {
         description: "Gagal mengirim pesan. Silakan coba lagi.",
         variant: "destructive",
       });
-      
+
       // Fallback response
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -121,12 +121,7 @@ const Chatbot = () => {
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
                 <h3 className="font-semibold text-foreground">AI Assistant</h3>
               </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsOpen(false)}
-                className="hover:bg-accent"
-              >
+              <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="hover:bg-accent">
                 <X className="w-4 h-4" />
               </Button>
             </div>
@@ -134,25 +129,9 @@ const Chatbot = () => {
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((message) => (
-                <motion.div
-                  key={message.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className={`flex ${
-                    message.sender === "user" ? "justify-end" : "justify-start"
-                  }`}
-                >
-                  <div
-                    className={`max-w-[80%] rounded-lg px-4 py-2 ${
-                      message.sender === "user"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-secondary text-secondary-foreground"
-                    }`}
-                  >
-                    <p className="text-sm whitespace-pre-wrap break-words">
-                      {message.text}
-                    </p>
+                <motion.div key={message.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}>
+                  <div className={`max-w-[80%] rounded-lg px-4 py-2 ${message.sender === "user" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+                    <p className="text-sm whitespace-pre-wrap break-words">{message.text}</p>
                     <span className="text-xs opacity-70 mt-1 block">
                       {message.timestamp.toLocaleTimeString("id-ID", {
                         hour: "2-digit",
@@ -163,11 +142,7 @@ const Chatbot = () => {
                 </motion.div>
               ))}
               {isLoading && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="flex justify-start"
-                >
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
                   <div className="bg-secondary text-secondary-foreground rounded-lg px-4 py-2">
                     <div className="flex gap-1">
                       <div className="w-2 h-2 bg-primary rounded-full animate-bounce" />
@@ -183,20 +158,8 @@ const Chatbot = () => {
             {/* Input */}
             <div className="p-4 border-t border-border">
               <div className="flex gap-2">
-                <Input
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Ketik pesan Anda..."
-                  disabled={isLoading}
-                  className="flex-1"
-                />
-                <Button
-                  onClick={sendMessage}
-                  disabled={isLoading || !inputValue.trim()}
-                  size="icon"
-                  className="shrink-0"
-                >
+                <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyPress={handleKeyPress} placeholder="Ketik pesan Anda..." disabled={isLoading} className="flex-1" />
+                <Button onClick={sendMessage} disabled={isLoading || !inputValue.trim()} size="icon" className="shrink-0">
                   <Send className="w-4 h-4" />
                 </Button>
               </div>
@@ -206,36 +169,15 @@ const Chatbot = () => {
       </AnimatePresence>
 
       {/* Floating Button */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 20 }}
-        className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50"
-      >
-        <Button
-          onClick={() => setIsOpen(!isOpen)}
-          size="icon"
-          className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-shadow glow-effect"
-        >
+      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.5, type: "spring", stiffness: 260, damping: 20 }} className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50">
+        <Button onClick={() => setIsOpen(!isOpen)} size="icon" className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-shadow glow-effect">
           <AnimatePresence mode="wait">
             {isOpen ? (
-              <motion.div
-                key="close"
-                initial={{ rotate: -180, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 180, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
+              <motion.div key="close" initial={{ rotate: -180, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 180, opacity: 0 }} transition={{ duration: 0.2 }}>
                 <X className="w-6 h-6" />
               </motion.div>
             ) : (
-              <motion.div
-                key="open"
-                initial={{ rotate: 180, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -180, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
+              <motion.div key="open" initial={{ rotate: 180, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -180, opacity: 0 }} transition={{ duration: 0.2 }}>
                 <MessageCircle className="w-6 h-6" />
               </motion.div>
             )}
