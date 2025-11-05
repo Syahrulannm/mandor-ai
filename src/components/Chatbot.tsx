@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
 // Ganti URL ini dengan webhook n8n Anda
-const N8N_WEBHOOK_URL = "https://curvier-gramophonically-bernadette.ngrok-free.dev/webhook/ecf5c3fe-d225-4365-9aa1-29c74eba72e3";
+const N8N_WEBHOOK_URL = "https://curvier-gramophonically-bernadette.ngrok-free.dev/webhook-test/chatbot";
 
 interface Message {
   id: string;
@@ -66,10 +66,28 @@ const Chatbot = () => {
       }
 
       const data = await response.json();
+      console.log("Response dari n8n:", data);
+
+      // Coba berbagai format response dari n8n
+      let botReply = "";
+      if (data.reply) {
+        botReply = data.reply;
+      } else if (data.output) {
+        botReply = data.output;
+      } else if (data.message) {
+        botReply = data.message;
+      } else if (data.text) {
+        botReply = data.text;
+      } else if (typeof data === "string") {
+        botReply = data;
+      } else {
+        // Jika tidak ada field yang cocok, tampilkan seluruh response
+        botReply = JSON.stringify(data, null, 2);
+      }
 
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.reply || "Maaf, saya tidak mengerti.",
+        text: botReply || "Maaf, saya tidak mengerti.",
         sender: "bot",
         timestamp: new Date(),
       };
