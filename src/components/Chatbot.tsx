@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
 // Ganti URL ini dengan webhook n8n Anda
-const N8N_WEBHOOK_URL = "https://curvier-gramophonically-bernadette.ngrok-free.dev/webhook-test/chatbot";
+const N8N_WEBHOOK_URL = "https://curvier-gramophonically-bernadette.ngrok-free.dev/webhook/chatbot";
 
 interface Message {
   id: string;
