@@ -57,10 +57,10 @@ const Navigation = () => {
             <button onClick={() => scrollToSection("projects")} className="block w-full text-left text-muted-foreground hover:text-primary transition-colors">
               Proyek
             </button>
-            <Link to="/workflows" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/workflows" className="block w-full text-left text-muted-foreground hover:text-primary transition-colors">
               Workflow
             </Link>
-            <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/blog" className="block w-full text-left text-muted-foreground hover:text-primary transition-colors">
               Blog
             </Link>
             <Button onClick={() => scrollToSection("contact")} className="w-full gradient-primary hover:opacity-90 transition-opacity">
