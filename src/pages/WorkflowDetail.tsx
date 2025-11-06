@@ -95,10 +95,10 @@ const WorkflowDetail = () => {
           <p className="text-muted-foreground text-base md:text-lg">{data.subtitle}</p>
         </div>
 
-        <div className="border border-border rounded-xl overflow-hidden shadow-2xl bg-card/50 backdrop-blur-sm h-[min(80svh,860px)] md:h-[min(85svh,920px)]">
+        <div className="border border-border rounded-xl overflow-hidden shadow-2xl bg-card/50 backdrop-blur-sm min-h-[70vh] sm:h-[700px]">
           {ready ? (
             // @ts-ignore
-            <n8n-demo ref={n8nRef as any} frame clicktointeract collapseformobile="true" theme="dark" style={{ display: "block", width: "100%", height: "100%" }} />
+            <n8n-demo ref={n8nRef as any} frame clicktointeract collapseformobile="false" theme="dark" style={{ display: "block", width: "100%", height: "100%", minHeight: "70vh" }} />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-muted-foreground">Menyiapkan canvas...</div>
           )}
