@@ -31,7 +31,7 @@ const Navigation = () => {
             <button onClick={() => scrollToSection("projects")} className="text-muted-foreground hover:text-primary transition-colors">
               Proyek
             </button>
-            <Link to={"workflow"} className="text-muted-foreground hover:text-primary transition-colors">
+            <Link to={"workflows"} className="text-muted-foreground hover:text-primary transition-colors">
               Workflow
             </Link>
             <button onClick={() => scrollToSection("blog")} className="text-muted-foreground hover:text-primary transition-colors">
@@ -57,7 +57,7 @@ const Navigation = () => {
             <button onClick={() => scrollToSection("projects")} className="block w-full text-left text-muted-foreground hover:text-primary transition-colors">
               Proyek
             </button>
-            <Link to={"workflow"} className="text-muted-foreground hover:text-primary transition-colors">
+            <Link to={"workflows"} className="text-muted-foreground hover:text-primary transition-colors">
               Workflow
             </Link>
             <button onClick={() => scrollToSection("blog")} className="block w-full text-left text-muted-foreground hover:text-primary transition-colors">

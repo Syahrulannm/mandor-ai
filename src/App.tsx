@@ -5,7 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import WorkflowPreview from "./pages/WorkflowPreview";
+import Workflows from "./pages/Workflows";
+import WorkflowDetail from "./pages/WorkflowDetail";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +18,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/workflow" element={<WorkflowPreview />} />
+          <Route path="/workflows" element={<Workflows />} />
+          <Route path="/workflows/:id" element={<WorkflowDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
